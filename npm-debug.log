@@ -1,0 +1,193 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node',
+1 verbose cli   '/home/ubuntu/.meteor/packages/meteor-tool/.1.3.2_4.10vjklo++os.linux.x86_64+web.browser+web.cordova/mt-os.linux.x86_64/dev_bundle/bin/npm',
+1 verbose cli   'install',
+1 verbose cli   '--save',
+1 verbose cli   'classnames' ]
+2 info using npm@2.14.22
+3 info using node@v0.10.43
+4 verbose install initial load of /home/ubuntu/workspace/package.json
+5 verbose installManyTop reading scoped package data from /home/ubuntu/workspace/node_modules/meteor-node-stubs/package.json
+6 verbose installManyTop reading scoped package data from /home/ubuntu/workspace/node_modules/react/package.json
+7 verbose installManyTop reading scoped package data from /home/ubuntu/workspace/node_modules/react-addons-pure-render-mixin/package.json
+8 verbose installManyTop reading scoped package data from /home/ubuntu/workspace/node_modules/react-dom/package.json
+9 verbose readDependencies loading dependencies from /home/ubuntu/workspace/package.json
+10 silly cache add args [ 'classnames', null ]
+11 verbose cache add spec classnames
+12 silly cache add parsed spec { raw: 'classnames',
+12 silly cache add   scope: null,
+12 silly cache add   name: 'classnames',
+12 silly cache add   rawSpec: '',
+12 silly cache add   spec: 'latest',
+12 silly cache add   type: 'tag' }
+13 silly addNamed classnames@latest
+14 verbose addNamed "latest" is being treated as a dist-tag for classnames
+15 info addNameTag [ 'classnames', 'latest' ]
+16 silly mapToRegistry name classnames
+17 silly mapToRegistry using default registry
+18 silly mapToRegistry registry https://registry.npmjs.org/
+19 silly mapToRegistry uri https://registry.npmjs.org/classnames
+20 verbose addNameTag registry:https://registry.npmjs.org/classnames not in flight; fetching
+21 verbose request uri https://registry.npmjs.org/classnames
+22 verbose request no auth needed
+23 info attempt registry request try #1 at 19:20:47
+24 verbose request id 8e1fc7172cf5e921
+25 http request GET https://registry.npmjs.org/classnames
+26 http 200 https://registry.npmjs.org/classnames
+27 verbose headers { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+27 verbose headers   etag: '"GKEWEI3UBBLX2SBRPXBDLZLL"',
+27 verbose headers   'content-type': 'application/json',
+27 verbose headers   'content-encoding': 'gzip',
+27 verbose headers   'cache-control': 'max-age=300',
+27 verbose headers   'content-length': '6670',
+27 verbose headers   'accept-ranges': 'bytes',
+27 verbose headers   date: 'Thu, 02 Jun 2016 19:20:47 GMT',
+27 verbose headers   via: '1.1 varnish',
+27 verbose headers   age: '40',
+27 verbose headers   connection: 'keep-alive',
+27 verbose headers   'x-served-by': 'cache-dfw1823-DFW',
+27 verbose headers   'x-cache': 'HIT',
+27 verbose headers   'x-cache-hits': '1',
+27 verbose headers   'x-timer': 'S1464895247.873858,VS0,VE0',
+27 verbose headers   vary: 'Accept-Encoding' }
+28 silly get cb [ 200,
+28 silly get   { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+28 silly get     etag: '"GKEWEI3UBBLX2SBRPXBDLZLL"',
+28 silly get     'content-type': 'application/json',
+28 silly get     'content-encoding': 'gzip',
+28 silly get     'cache-control': 'max-age=300',
+28 silly get     'content-length': '6670',
+28 silly get     'accept-ranges': 'bytes',
+28 silly get     date: 'Thu, 02 Jun 2016 19:20:47 GMT',
+28 silly get     via: '1.1 varnish',
+28 silly get     age: '40',
+28 silly get     connection: 'keep-alive',
+28 silly get     'x-served-by': 'cache-dfw1823-DFW',
+28 silly get     'x-cache': 'HIT',
+28 silly get     'x-cache-hits': '1',
+28 silly get     'x-timer': 'S1464895247.873858,VS0,VE0',
+28 silly get     vary: 'Accept-Encoding' } ]
+29 verbose get saving classnames to /home/ubuntu/.npm/registry.npmjs.org/classnames/.cache.json
+30 verbose correctMkdir /home/ubuntu/.npm correctMkdir not in flight; initializing
+31 silly addNameTag next cb for classnames with tag latest
+32 silly addNamed classnames@2.2.5
+33 verbose addNamed "2.2.5" is a plain semver version for classnames
+34 silly mapToRegistry name classnames
+35 silly mapToRegistry using default registry
+36 silly mapToRegistry registry https://registry.npmjs.org/
+37 silly mapToRegistry uri https://registry.npmjs.org/classnames
+38 verbose addRemoteTarball https://registry.npmjs.org/classnames/-/classnames-2.2.5.tgz not in flight; adding
+39 verbose addRemoteTarball [ 'https://registry.npmjs.org/classnames/-/classnames-2.2.5.tgz',
+39 verbose addRemoteTarball   'fb3801d453467649ef3603c7d61a02bd129bde6d' ]
+40 info retry fetch attempt 1 at 19:20:47
+41 info attempt registry request try #1 at 19:20:47
+42 http fetch GET https://registry.npmjs.org/classnames/-/classnames-2.2.5.tgz
+43 http fetch 200 https://registry.npmjs.org/classnames/-/classnames-2.2.5.tgz
+44 silly fetchAndShaCheck shasum fb3801d453467649ef3603c7d61a02bd129bde6d
+45 verbose addTmpTarball /tmp/npm-4111-a1e08ae3/registry.npmjs.org/classnames/-/classnames-2.2.5.tgz not in flight; adding
+46 verbose addTmpTarball already have metadata; skipping unpack for classnames@2.2.5
+47 verbose correctMkdir /home/ubuntu/.npm correctMkdir not in flight; initializing
+48 silly cache afterAdd classnames@2.2.5
+49 verbose afterAdd /home/ubuntu/.npm/classnames/2.2.5/package/package.json not in flight; writing
+50 verbose correctMkdir /home/ubuntu/.npm correctMkdir not in flight; initializing
+51 verbose afterAdd /home/ubuntu/.npm/classnames/2.2.5/package/package.json written
+52 silly install resolved [ { name: 'classnames',
+52 silly install resolved     version: '2.2.5',
+52 silly install resolved     description: 'A simple utility for conditionally joining classNames together',
+52 silly install resolved     main: 'index.js',
+52 silly install resolved     author: { name: 'Jed Watson' },
+52 silly install resolved     license: 'MIT',
+52 silly install resolved     repository:
+52 silly install resolved      { type: 'git',
+52 silly install resolved        url: 'git+https://github.com/JedWatson/classnames.git' },
+52 silly install resolved     scripts:
+52 silly install resolved      { benchmarks: 'node ./benchmarks/run',
+52 silly install resolved        unit: 'mocha tests/*.js',
+52 silly install resolved        test: 'npm run unit' },
+52 silly install resolved     keywords:
+52 silly install resolved      [ 'react',
+52 silly install resolved        'css',
+52 silly install resolved        'classes',
+52 silly install resolved        'classname',
+52 silly install resolved        'classnames',
+52 silly install resolved        'util',
+52 silly install resolved        'utility' ],
+52 silly install resolved     devDependencies: { benchmark: '^1.0.0', mocha: '^2.1.0' },
+52 silly install resolved     gitHead: '1fc62c0490bfc7d67a1178bbb60897cfa0580c7b',
+52 silly install resolved     bugs: { url: 'https://github.com/JedWatson/classnames/issues' },
+52 silly install resolved     homepage: 'https://github.com/JedWatson/classnames#readme',
+52 silly install resolved     _id: 'classnames@2.2.5',
+52 silly install resolved     _shasum: 'fb3801d453467649ef3603c7d61a02bd129bde6d',
+52 silly install resolved     _from: 'classnames@latest',
+52 silly install resolved     _npmVersion: '3.3.6',
+52 silly install resolved     _nodeVersion: '5.0.0',
+52 silly install resolved     _npmUser: { name: 'jedwatson', email: 'jed.watson@me.com' },
+52 silly install resolved     maintainers: [ [Object] ],
+52 silly install resolved     dist:
+52 silly install resolved      { shasum: 'fb3801d453467649ef3603c7d61a02bd129bde6d',
+52 silly install resolved        tarball: 'https://registry.npmjs.org/classnames/-/classnames-2.2.5.tgz' },
+52 silly install resolved     _npmOperationalInternal:
+52 silly install resolved      { host: 'packages-12-west.internal.npmjs.com',
+52 silly install resolved        tmp: 'tmp/classnames-2.2.5.tgz_1462195436082_0.17347457958385348' },
+52 silly install resolved     directories: {},
+52 silly install resolved     _resolved: 'https://registry.npmjs.org/classnames/-/classnames-2.2.5.tgz' } ]
+53 info install classnames@2.2.5 into /home/ubuntu/workspace
+54 info installOne classnames@2.2.5
+55 verbose installOne of classnames to /home/ubuntu/workspace not in flight; installing
+56 verbose correctMkdir /home/ubuntu/.npm/_locks correctMkdir not in flight; initializing
+57 verbose lock using /home/ubuntu/.npm/_locks/classnames-f3eeb09e41fc5223.lock for /home/ubuntu/workspace/node_modules/classnames
+58 silly install write writing classnames 2.2.5 to /home/ubuntu/workspace/node_modules/classnames
+59 verbose unbuild node_modules/classnames
+60 silly gentlyRm /home/ubuntu/workspace/node_modules/classnames is being purged from base /home/ubuntu/workspace
+61 verbose gentlyRm don't care about contents; nuking /home/ubuntu/workspace/node_modules/classnames
+62 verbose tar unpack /home/ubuntu/.npm/classnames/2.2.5/package.tgz
+63 verbose tar unpacking to /home/ubuntu/workspace/node_modules/classnames
+64 silly gentlyRm /home/ubuntu/workspace/node_modules/classnames is being purged
+65 verbose gentlyRm don't care about contents; nuking /home/ubuntu/workspace/node_modules/classnames
+66 silly gunzTarPerm modes [ '755', '644' ]
+67 silly gunzTarPerm extractEntry package.json
+68 silly gunzTarPerm extractEntry README.md
+69 silly gunzTarPerm extractEntry LICENSE
+70 silly gunzTarPerm extractEntry bind.js
+71 silly gunzTarPerm extractEntry dedupe.js
+72 silly gunzTarPerm extractEntry index.js
+73 silly gunzTarPerm extractEntry CONTRIBUTING.md
+74 silly gunzTarPerm extractEntry bower.json
+75 silly gunzTarPerm extractEntry HISTORY.md
+76 verbose write writing to /home/ubuntu/workspace/node_modules/classnames/package.json
+77 info preinstall classnames@2.2.5
+78 verbose readDependencies loading dependencies from /home/ubuntu/workspace/node_modules/classnames/package.json
+79 verbose readDependencies loading dependencies from /home/ubuntu/workspace/node_modules/classnames/package.json
+80 silly install resolved []
+81 verbose about to build /home/ubuntu/workspace/node_modules/classnames
+82 info build /home/ubuntu/workspace/node_modules/classnames
+83 info linkStuff classnames@2.2.5
+84 silly linkStuff classnames@2.2.5 has /home/ubuntu/workspace/node_modules as its parent node_modules
+85 verbose linkBins classnames@2.2.5
+86 verbose linkMans classnames@2.2.5
+87 verbose rebuildBundles classnames@2.2.5
+88 info install classnames@2.2.5
+89 info postinstall classnames@2.2.5
+90 verbose unlock done using /home/ubuntu/.npm/_locks/classnames-f3eeb09e41fc5223.lock for /home/ubuntu/workspace/node_modules/classnames
+91 verbose validateInstall loading /home/ubuntu/workspace/package.json for validation
+92 verbose stack Error: The package react@15.0.2 does not satisfy its siblings' peerDependencies requirements!
+92 verbose stack     at /home/ubuntu/.meteor/packages/meteor-tool/.1.3.2_4.10vjklo++os.linux.x86_64+web.browser+web.cordova/mt-os.linux.x86_64/dev_bundle/lib/node_modules/npm/lib/install.js:125:32
+92 verbose stack     at /home/ubuntu/.meteor/packages/meteor-tool/.1.3.2_4.10vjklo++os.linux.x86_64+web.browser+web.cordova/mt-os.linux.x86_64/dev_bundle/lib/node_modules/npm/lib/install.js:268:7
+92 verbose stack     at /home/ubuntu/.meteor/packages/meteor-tool/.1.3.2_4.10vjklo++os.linux.x86_64+web.browser+web.cordova/mt-os.linux.x86_64/dev_bundle/lib/node_modules/npm/node_modules/read-installed/read-installed.js:142:5
+92 verbose stack     at /home/ubuntu/.meteor/packages/meteor-tool/.1.3.2_4.10vjklo++os.linux.x86_64+web.browser+web.cordova/mt-os.linux.x86_64/dev_bundle/lib/node_modules/npm/node_modules/read-installed/read-installed.js:263:14
+92 verbose stack     at cb (/home/ubuntu/.meteor/packages/meteor-tool/.1.3.2_4.10vjklo++os.linux.x86_64+web.browser+web.cordova/mt-os.linux.x86_64/dev_bundle/lib/node_modules/npm/node_modules/slide/lib/async-map.js:47:24)
+92 verbose stack     at /home/ubuntu/.meteor/packages/meteor-tool/.1.3.2_4.10vjklo++os.linux.x86_64+web.browser+web.cordova/mt-os.linux.x86_64/dev_bundle/lib/node_modules/npm/node_modules/read-installed/read-installed.js:263:14
+92 verbose stack     at cb (/home/ubuntu/.meteor/packages/meteor-tool/.1.3.2_4.10vjklo++os.linux.x86_64+web.browser+web.cordova/mt-os.linux.x86_64/dev_bundle/lib/node_modules/npm/node_modules/slide/lib/async-map.js:47:24)
+92 verbose stack     at /home/ubuntu/.meteor/packages/meteor-tool/.1.3.2_4.10vjklo++os.linux.x86_64+web.browser+web.cordova/mt-os.linux.x86_64/dev_bundle/lib/node_modules/npm/node_modules/read-installed/read-installed.js:263:14
+92 verbose stack     at cb (/home/ubuntu/.meteor/packages/meteor-tool/.1.3.2_4.10vjklo++os.linux.x86_64+web.browser+web.cordova/mt-os.linux.x86_64/dev_bundle/lib/node_modules/npm/node_modules/slide/lib/async-map.js:47:24)
+92 verbose stack     at /home/ubuntu/.meteor/packages/meteor-tool/.1.3.2_4.10vjklo++os.linux.x86_64+web.browser+web.cordova/mt-os.linux.x86_64/dev_bundle/lib/node_modules/npm/node_modules/read-installed/read-installed.js:263:14
+93 verbose cwd /home/ubuntu/workspace
+94 error Linux 4.2.0-c9
+95 error argv "node" "/home/ubuntu/.meteor/packages/meteor-tool/.1.3.2_4.10vjklo++os.linux.x86_64+web.browser+web.cordova/mt-os.linux.x86_64/dev_bundle/bin/npm" "install" "--save" "classnames"
+96 error node v0.10.43
+97 error npm  v2.14.22
+98 error code EPEERINVALID
+99 error peerinvalid The package react@15.0.2 does not satisfy its siblings' peerDependencies requirements!
+99 error peerinvalid Peer react-dom@15.0.2 wants react@^15.0.2
+99 error peerinvalid Peer react-addons-pure-render-mixin@15.1.0 wants react@^15.1.0
+100 verbose exit [ 1, true ]
