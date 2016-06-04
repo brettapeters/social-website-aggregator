@@ -20,6 +20,5 @@ ecmascript              # Enable ECMAScript2015+ syntax in app code
 react-meteor-data
 accounts-ui
 accounts-password
-maxharris9:classnames
 practicalmeteor:mocha
 accounts-facebook

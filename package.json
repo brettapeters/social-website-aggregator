@@ -1,5 +1,5 @@
 {
-  "name": "simple-todos",
+  "name": "social-website-aggregator",
   "private": true,
   "scripts": {
     "start": "meteor run"
