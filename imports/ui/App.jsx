@@ -71,9 +71,9 @@ class App extends Component {
           }
         </header>
         
-        <ul>
+        <ol>
           {this.renderPosts()}
-        </ul>
+        </ol>
       </div>
     );
   }
@@ -88,7 +88,7 @@ export default createContainer(() => {
   Meteor.subscribe('posts');
   
   return {
-    posts: Posts.find({}, { sort: { createdAt: -1 } }).fetch(),
+    posts: Posts.find({}, { sort: { points: -1 } }).fetch(),
     currentUser: Meteor.user(),
   };
 }, App);

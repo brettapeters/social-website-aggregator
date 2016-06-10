@@ -1,1 +1,1 @@
-# Social website aggregator (a la Reddit) application using Meteor and React
+# Social website aggregator (a la Hacker News) application using Meteor and React

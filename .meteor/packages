@@ -22,3 +22,8 @@ accounts-ui
 accounts-password
 practicalmeteor:mocha
 accounts-facebook
+momentjs:moment
+jamiter:pluralize
+http
+peerlibrary:url-utils
+reactrouter:react-router

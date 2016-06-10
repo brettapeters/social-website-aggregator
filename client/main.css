@@ -1,5 +1,5 @@
 body {
-  font-family: sans-serif;
+  font-family: Verdana, Geneva, sans-serif;
   background-color: #EEE;
   background-attachment: fixed;
  
@@ -12,11 +12,11 @@ body {
   padding: 0;
   margin: 0;
  
-  font-size: 14px;
+  font-size: 12pt;
 }
  
 .container {
-  max-width: 600px;
+  width: 85%;
   margin: 0 auto;
   min-height: 100%;
   background: white;
@@ -42,11 +42,12 @@ h1 {
 }
  
 form {
+  padding: 10px;
   margin-top: 10px;
   margin-bottom: -10px;
   position: relative;
 }
- 
+
 .new-post input {
   box-sizing: border-box;
   padding: 10px 0;
@@ -55,6 +56,7 @@ form {
   width: 100%;
   padding-right: 80px;
   font-size: 1em;
+  text-align: left;
   color: inherit;
 }
  
@@ -62,9 +64,9 @@ form {
   outline: 0;
 }
  
-ul {
+ol {
   margin: 0;
-  padding: 0;
+  padding: 10px;
   background: white;
 }
  
@@ -78,48 +80,36 @@ ul {
 }
  
 li {
+  list-style-type: decimal;
+  list-style-position: inside;
   position: relative;
-  list-style: none;
   padding: 15px;
   border-bottom: #eee solid 1px;
+  color: #828282;
 }
- 
-li .text {
-  margin-left: 10px;
+
+.postDetails {
+  position: relative;
+  left: 18pt;
+  font-size: 8pt;
 }
- 
-li.checked {
-  color: #888;
+
+.vote {
+  font-weight: bold;
+  color: black;
+  cursor: pointer;
 }
- 
-li.checked .text {
-  text-decoration: line-through;
-}
- 
-li.private {
-  background: #eee;
-  border-color: #ddd;
-}
- 
-header .hide-completed {
-  float: right;
-}
- 
-.toggle-private {
-  margin-left: 5px;
-}
- 
+
 @media (max-width: 600px) {
   li {
     padding: 12px 15px;
   }
  
-  .search {
-    width: 150px;
-    clear: both;
-  }
- 
   .new-post input {
     padding-bottom: 5px;
+  }
+  
+  .container {
+    width: 100%;
   }
 }
