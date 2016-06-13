@@ -3,6 +3,9 @@ import { Meteor } from 'meteor/meteor';
 
 import { Posts } from '../api/posts.js';
 
+import Upvote from './Upvote.jsx';
+import Downvote from './Downvote.jsx';
+
 // Post component - represents a single post item
 export default class Post extends Component {
   deleteThisPost() {
@@ -13,14 +16,6 @@ export default class Post extends Component {
     return moment(date).fromNow();
   }
   
-  upVote() {
-    Meteor.call('posts.upvote', this.props.post._id);
-  }
-  
-  downVote() {
-    Meteor.call('posts.downvote', this.props.post._id);
-  }
-
   render() {
     const rawUrl = this.props.post.url;
     const normalizedUrl = UrlUtils.normalize(rawUrl);
@@ -32,8 +27,6 @@ export default class Post extends Component {
     const postComments = this.props.post.comments.length;
     const postShowDeleteButton = this.props.showDeleteButton;
     const handleDeleteClick = this.deleteThisPost.bind(this);
-    const handleUpVoteClick = this.upVote.bind(this);
-    const handleDownVoteClick = this.downVote.bind(this);
     
     return (
       <li>
@@ -42,16 +35,20 @@ export default class Post extends Component {
             &times;
           </button>
         ) : ''}
-        
-        <div className="postUrl">
-          <img src="images/up-arrow.png" alt="up arrow" onClick={handleUpVoteClick} />
-          <span> | </span>
-          <img src="images/down-arrow.png" alt="down arrow" onClick={handleDownVoteClick} />
-          <strong><a href={normalizedUrl} target="_blank">{postDescription}</a></strong>
-          <span> ({urlHost})</span>
-        </div>
-        <div className="postDetails">
-          {pluralize('point', postPoints, true)} by: {postUsername} {postDate} | {pluralize('comment', postComments, true)}
+        <span>
+          <Upvote postId={this.props.post._id}
+                  checked={this.props.upvoted} />
+          <Downvote postId={this.props.post._id}
+                    checked={this.props.downvoted} />
+        </span>
+        <div className="postWrap">
+          <div className="postUrl">
+            <strong><a href={normalizedUrl} target="_blank">{postDescription}</a></strong>
+            <span> ({urlHost})</span>
+          </div>
+          <div className="postDetails">
+            {pluralize('point', postPoints, true)} by: {postUsername} {postDate} | {pluralize('comment', postComments, true)}
+          </div>
         </div>
       </li>
     );
@@ -59,8 +56,8 @@ export default class Post extends Component {
 }
 
 Post.propTypes = {
-  // This component gets the post to display through a React prop.
-  // We can use propTypes to indicate it is required
   post: PropTypes.object.isRequired,
   showDeleteButton: React.PropTypes.bool.isRequired,
+  upvoted: PropTypes.bool,
+  downvoted: PropTypes.bool,
 };

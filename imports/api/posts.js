@@ -51,30 +51,44 @@ Meteor.methods({
     
     Posts.remove(postId);
   },
-  'posts.upvote'(postId) {
-    const post = Posts.findOne(postId);
-    const userId = Meteor.user()._id;
+  'posts.toggleUpvote'(postId) {
+    check(postId, String);
     
     if (!Meteor.user()) {
       // Make sure only logged-in user can vote
       throw new Meteor.Error('not-authorized');
     }
     
-    Posts.update(postId, { $pull: { downvoters: userId },
-                           $addToSet: { upvoters: userId } });
+    const post = Posts.findOne(postId);
+    const userId = Meteor.user()._id;
+    
+    if (post.upvoters.indexOf(userId) === -1) {
+      Posts.update(postId, { $pull: { downvoters: userId },
+                             $addToSet: { upvoters: userId } });
+    } else {
+      Posts.update(postId, { $pull: { upvoters: userId } });
+    };
+    
     updatePoints(postId);
   },
-  'posts.downvote'(postId) {
-    const post = Posts.findOne(postId);
-    const userId = Meteor.user()._id;
+  'posts.toggleDownvote'(postId) {
+    check(postId, String);
     
     if (!Meteor.user()) {
       // Make sure only logged-in user can vote
       throw new Meteor.Error('not-authorized');
     }
     
-    Posts.update(postId, { $pull: { upvoters: userId },
-                           $addToSet: { downvoters: userId } });
+    const post = Posts.findOne(postId);
+    const userId = Meteor.user()._id;
+    
+    if (post.downvoters.indexOf(userId) === -1) {
+      Posts.update(postId, { $pull: { upvoters: userId },
+                             $addToSet: { downvoters: userId } });
+    } else {
+      Posts.update(postId, { $pull: { downvoters: userId } });
+    }
+    
     updatePoints(postId);
   },
 });

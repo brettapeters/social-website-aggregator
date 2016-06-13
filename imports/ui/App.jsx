@@ -33,12 +33,16 @@ class App extends Component {
     return this.props.posts.map((post) => {
       const currentUserId = this.props.currentUser && this.props.currentUser._id;
       const showDeleteButton = post.owner === currentUserId;
+      const upvoted = (post.upvoters.indexOf(currentUserId) !== -1);
+      const downvoted = (post.downvoters.indexOf(currentUserId) !== -1);
       
       return(
         <Post
           key={post._id}
           post={post}
           showDeleteButton={showDeleteButton}
+          upvoted={upvoted}
+          downvoted={downvoted}
         />
       );
     }); 
@@ -48,7 +52,7 @@ class App extends Component {
     return (
       <div className="container">
         <header>
-          <h1>Posts</h1>
+          <h1>Social Website Aggregator</h1>
           
           <AccountsUIWrapper />
           
@@ -58,11 +62,13 @@ class App extends Component {
                 type="text"
                 ref="urlInput"
                 placeholder="URL"
+                required
               />
               <input
                 type="text"
                 ref="descriptionInput"
-                placeholder="Description"
+                placeholder="Link Title"
+                required
               />
               <input
                 type="submit"
@@ -88,7 +94,7 @@ export default createContainer(() => {
   Meteor.subscribe('posts');
   
   return {
-    posts: Posts.find({}, { sort: { points: -1 } }).fetch(),
+    posts: Posts.find({}, { sort: { createdAt: -1} }).fetch(),
     currentUser: Meteor.user(),
   };
 }, App);
