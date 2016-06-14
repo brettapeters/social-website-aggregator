@@ -1,14 +1,21 @@
 import React from 'react';
-import { Router, Route, browserHistory } from 'react-router';
+import { Router, Route, IndexRoute, browserHistory } from 'react-router';
+import { ReactRouterSSR } from 'meteor/reactrouter:react-router-ssr';
 
 // route components
-import App from '../ui/App.jsx';
-import Post from '../ui/Post.jsx';
+import App from '../ui/layouts/App.jsx';
+import Home from '../ui/pages/Home.jsx';
+import ShowPost from '../ui/pages/ShowPost.jsx';
+import NotFoundPage from '../ui/pages/NotFoundPage.jsx';
 
-export const renderRoutes = () => (
+const Routes = (
   <Router history={browserHistory}>
     <Route path="/" component={App}>
-      <Route path="posts/:id" component={Post} />
+      <IndexRoute component={Home} />
+      <Route path="posts/:postId" component={ShowPost} />
     </Route>
+    <Route path="*" component={NotFoundPage} />
   </Router>
 );
+
+ReactRouterSSR.Run(Routes);

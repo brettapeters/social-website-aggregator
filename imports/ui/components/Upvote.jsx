@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import { Meteor } from 'meteor/meteor';
 import 'meteor/maxharris9:classnames';
 
-import { Posts } from '../api/posts.js';
+import { Posts } from '../../api/posts.js';
 
 export default class Upvote extends Component {
   upvote() {

@@ -1,17 +1,34 @@
 import React, { Component, PropTypes } from 'react';
 import ReactDOM from 'react-dom';
 import { Meteor } from 'meteor/meteor';
-import { createContainer } from 'meteor/react-meteor-data';
+import TrackerReact from 'meteor/ultimatejs:tracker-react';
 
-import { Posts } from '../api/posts.js'
+import { Posts } from '../../api/posts.js'
 
-import Post from './Post.jsx';
-import AccountsUIWrapper from './AccountsUIWrapper.jsx';
+import Post from '../components/Post.jsx';
+import AccountsUIWrapper from '../components/AccountsUIWrapper.jsx';
 
-// App component - represents the whole app
-class App extends Component {
+// Home Page
+export default class Home extends TrackerReact(React.Component) {
   constructor(props) {
     super(props);
+    this.state = {
+      subscription: {
+        posts: Meteor.subscribe('posts')
+      }
+    }
+  }
+  
+  componentWillUnmount() {
+    this.state.subscription.posts.stop();
+  }
+    
+  getPosts() {
+    return Posts.find({}, { sort: { createdAt: -1} }).fetch();
+  }
+  
+  currentUser() {
+    return Meteor.user();
   }
   
   handleSubmit(event) {
@@ -30,8 +47,10 @@ class App extends Component {
   }
   
   renderPosts() {
-    return this.props.posts.map((post) => {
-      const currentUserId = this.props.currentUser && this.props.currentUser._id;
+    const user = this.currentUser();
+    const currentUserId = user && user._id;
+    
+    return this.getPosts().map((post) => {
       const showDeleteButton = post.owner === currentUserId;
       const upvoted = (post.upvoters.indexOf(currentUserId) !== -1);
       const downvoted = (post.downvoters.indexOf(currentUserId) !== -1);
@@ -56,7 +75,7 @@ class App extends Component {
           
           <AccountsUIWrapper />
           
-          { this.props.currentUser ?
+          { this.currentUser() ?
             <form className="new-post" onSubmit={this.handleSubmit.bind(this)} >
               <input
                 type="text"
@@ -84,17 +103,3 @@ class App extends Component {
     );
   }
 }
-
-App.propTypes = {
-  posts: PropTypes.array.isRequired,
-  currentUser: PropTypes.object,
-};
-
-export default createContainer(() => {
-  Meteor.subscribe('posts');
-  
-  return {
-    posts: Posts.find({}, { sort: { createdAt: -1} }).fetch(),
-    currentUser: Meteor.user(),
-  };
-}, App);

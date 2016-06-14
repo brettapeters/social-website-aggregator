@@ -1,8 +1,9 @@
 import React, { Component, PropTypes } from 'react';
 import { Meteor } from 'meteor/meteor';
 
-import { Posts } from '../api/posts.js';
+import { Posts } from '../../api/posts.js';
 
+import { Link } from 'react-router';
 import Upvote from './Upvote.jsx';
 import Downvote from './Downvote.jsx';
 
@@ -47,7 +48,7 @@ export default class Post extends Component {
             <span> ({urlHost})</span>
           </div>
           <div className="postDetails">
-            {pluralize('point', postPoints, true)} by: {postUsername} {postDate} | {pluralize('comment', postComments, true)}
+            {pluralize('point', postPoints, true)} by: {postUsername} {postDate} | <Link to={`/posts/${this.props.post._id}`}>{pluralize('comment', postComments, true)}</Link>
           </div>
         </div>
       </li>

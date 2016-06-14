@@ -15,7 +15,7 @@ body {
   padding: 0;
   margin: 0;
  
-  font-size: 12pt;
+  font-size: 1em;
 }
  
 .container {
@@ -151,8 +151,11 @@ li {
     padding: 12px 15px;
   }
  
-  .new-post input, .new-post input[type="text"] {
+  .new-post input {
     padding-bottom: 5px;
+  }
+  
+  .new-post input[type="text"] {
     width: 100%;
   }
   

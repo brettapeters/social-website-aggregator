@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { Meteor } from 'meteor/meteor';
 
-import { Posts } from '../api/posts.js';
+import { Posts } from '../../api/posts.js';
 
 export default class Downvote extends Component {
   downvote() {
