@@ -1,5 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { Meteor } from 'meteor/meteor';
+import { UrlUtils } from 'meteor/peerlibrary:url-utils';
+import { moment } from 'meteor/momentjs:moment';
 
 import { Posts } from '../../api/posts.js';
 
