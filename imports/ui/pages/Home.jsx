@@ -3,10 +3,11 @@ import ReactDOM from 'react-dom';
 import { Meteor } from 'meteor/meteor';
 import TrackerReact from 'meteor/ultimatejs:tracker-react';
 
-import { Posts } from '../../api/posts.js'
+import { Posts } from '../../api/posts.js';
+import { Comments } from '../../api/comments.js';
 
 import Post from '../components/Post.jsx';
-import AccountsUIWrapper from '../components/AccountsUIWrapper.jsx';
+
 
 // Home Page
 export default class Home extends TrackerReact(React.Component) {
@@ -56,47 +57,43 @@ export default class Home extends TrackerReact(React.Component) {
       const downvoted = (post.downvoters.indexOf(currentUserId) !== -1);
       
       return(
-        <Post
-          key={post._id}
-          post={post}
-          showDeleteButton={showDeleteButton}
-          upvoted={upvoted}
-          downvoted={downvoted}
-        />
+        <li>
+          <Post
+            key={post._id}
+            post={post}
+            showDeleteButton={showDeleteButton}
+            upvoted={upvoted}
+            downvoted={downvoted}
+          />
+        </li>
       );
     }); 
   }
   
   render() {
     return (
-      <div className="container">
-        <header>
-          <h1>Social Website Aggregator</h1>
+      <div>
+        { this.currentUser() ?
+        <form className="new-post" onSubmit={this.handleSubmit.bind(this)} >
+          <input
+            type="text"
+            ref="urlInput"
+            placeholder="URL"
+            required
+          />
+          <input
+            type="text"
+            ref="descriptionInput"
+            placeholder="Link Title"
+            required
+          />
+          <input
+            type="submit"
+          />
+        </form> : ''
+        }
           
-          <AccountsUIWrapper />
-          
-          { this.currentUser() ?
-            <form className="new-post" onSubmit={this.handleSubmit.bind(this)} >
-              <input
-                type="text"
-                ref="urlInput"
-                placeholder="URL"
-                required
-              />
-              <input
-                type="text"
-                ref="descriptionInput"
-                placeholder="Link Title"
-                required
-              />
-              <input
-                type="submit"
-              />
-            </form> : ''
-          }
-        </header>
-        
-        <ol>
+        <ol className="posts">
           {this.renderPosts()}
         </ol>
       </div>

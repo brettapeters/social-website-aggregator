@@ -2,6 +2,8 @@ import { Meteor } from 'meteor/meteor';
 import { Mongo } from 'meteor/mongo';
 import { check } from 'meteor/check';
 
+import { Comments } from './comments.js';
+
 export const Posts = new Mongo.Collection('posts');
 
 if (Meteor.isServer) {
@@ -37,7 +39,6 @@ Meteor.methods({
       upvoters: [],
       downvoters: [],
       points: 0,
-      comments: []
     });
   },
   'posts.remove'(postId) {
