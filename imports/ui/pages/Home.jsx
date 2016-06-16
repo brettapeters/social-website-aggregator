@@ -2,6 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import ReactDOM from 'react-dom';
 import { Meteor } from 'meteor/meteor';
 import TrackerReact from 'meteor/ultimatejs:tracker-react';
+import { HTTP } from 'meteor/http';
 
 import { Posts } from '../../api/posts.js';
 import { Comments } from '../../api/comments.js';
@@ -34,17 +35,12 @@ export default class Home extends TrackerReact(React.Component) {
   
   handleSubmit(event) {
     event.preventDefault();
-    
-    // Find the input fields via the React refs
     const url = ReactDOM.findDOMNode(this.refs.urlInput).value.trim();
-    const description = ReactDOM.findDOMNode(this.refs.descriptionInput).value.trim();
-    
-    // Insert form data
-    Meteor.call('posts.insert', url, description);
-    
-    // Clear form
+    extractMeta(url, function (err, meta) {
+      console.log(meta);
+      Meteor.call('posts.insert', url, meta.title);
+    });
     ReactDOM.findDOMNode(this.refs.urlInput).value = '';
-    ReactDOM.findDOMNode(this.refs.descriptionInput).value = '';
   }
   
   renderPosts() {
@@ -57,7 +53,7 @@ export default class Home extends TrackerReact(React.Component) {
       const downvoted = (post.downvoters.indexOf(currentUserId) !== -1);
       
       return(
-        <li>
+        <li key={post._id}>
           <Post
             key={post._id}
             post={post}
@@ -79,12 +75,6 @@ export default class Home extends TrackerReact(React.Component) {
             type="text"
             ref="urlInput"
             placeholder="URL"
-            required
-          />
-          <input
-            type="text"
-            ref="descriptionInput"
-            placeholder="Link Title"
             required
           />
           <input

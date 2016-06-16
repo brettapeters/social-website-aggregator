@@ -42,7 +42,7 @@ export default class Post extends TrackerReact(React.Component) {
     const rawUrl = this.props.post.url;
     const normalizedUrl = UrlUtils.normalize(rawUrl);
     const urlHost = UrlUtils.parse(rawUrl).hostname;
-    const postDescription = this.props.post.description;
+    const postTitle = this.props.post.title;
     const postUsername = this.props.post.username;
     const postDate = this.formatDate(this.props.post.createdAt);
     const postPoints = this.props.post.points;
@@ -67,7 +67,7 @@ export default class Post extends TrackerReact(React.Component) {
         }
         <div className="postWrap">
           <div className="postUrl">
-            <strong><a href={normalizedUrl} target="_blank">{postDescription}</a></strong>
+            <strong><a href={normalizedUrl} target="_blank">{postTitle}</a></strong>
             <span> ({urlHost})</span>
           </div>
           <div className="postDetails">

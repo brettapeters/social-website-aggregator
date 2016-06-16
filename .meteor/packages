@@ -27,3 +27,5 @@ accounts-ui
 peerlibrary:url-utils
 momentjs:moment
 jamiter:pluralize
+http
+acemtp:meta-extractor

@@ -20,9 +20,9 @@ function updatePoints(postId) {
 }
 
 Meteor.methods({
-  'posts.insert'(url, description) {
+  'posts.insert'(url, title) {
     check(url, String);
-    check(description, String);
+    check(title, String);
     
     // Make sure the user is logged in before inserting a post
     if (!this.userId) {
@@ -31,7 +31,7 @@ Meteor.methods({
     
     Posts.insert({
       url,
-      description,
+      title,
       createdAt: new Date(),
       owner: this.userId,
       username: Meteor.users.findOne(this.userId).username ||
