@@ -76,8 +76,6 @@ header a {
 form {
   padding: 10px;
   margin: 0 10px;
-  position: relative;
-  border-bottom: 1px solid #eee;
 }
 
 form input, form textarea {
@@ -115,6 +113,15 @@ form input[type="submit"]:hover {
 
 form input:focus{
   box-shadow: 0 1px 10px rgba(0,0,0,0.2);
+}
+
+.input-area {
+  display: block;
+  border-bottom: 1px solid #eee;
+}
+
+.input-area > form {
+  display: inline-block;
 }
  
 .delete {
@@ -212,11 +219,11 @@ form input:focus{
     padding: 12px 15px;
   }
  
-  .new-post input {
+  .text-input input {
     padding-bottom: 5px;
   }
   
-  .new-post input[type="text"] {
+  .text-input input[type="text"] {
     width: 100%;
   }
   

@@ -2,7 +2,6 @@ import React, { Component, PropTypes } from 'react';
 import ReactDOM from 'react-dom';
 import { Meteor } from 'meteor/meteor';
 import TrackerReact from 'meteor/ultimatejs:tracker-react';
-import { HTTP } from 'meteor/http';
 
 import { Posts } from '../../api/posts.js';
 import { Comments } from '../../api/comments.js';
@@ -16,7 +15,7 @@ export default class Home extends TrackerReact(React.Component) {
     super(props);
     this.state = {
       subscription: {
-        posts: Meteor.subscribe('posts')
+        posts: Meteor.subscribe('posts'),
       }
     }
   }
@@ -26,7 +25,7 @@ export default class Home extends TrackerReact(React.Component) {
   }
     
   getPosts() {
-    return Posts.find({}, { sort: { createdAt: -1} }).fetch();
+    return Posts.find({}, { sort: { points: -1, score: -1 } }).fetch();
   }
   
   currentUser() {
@@ -43,11 +42,20 @@ export default class Home extends TrackerReact(React.Component) {
     ReactDOM.findDOMNode(this.refs.urlInput).value = '';
   }
   
+  handleSearch(event) {
+    event.preventDefault();
+    const searchValue = ReactDOM.findDOMNode(this.refs.searchInput).value.trim();
+    this.state.subscription.posts.stop();
+    this.setState({ subscription: { posts: Meteor.subscribe('posts', searchValue) } });
+    ReactDOM.findDOMNode(this.refs.searchInput).value = '';
+  }
+  
   renderPosts() {
     const user = this.currentUser();
     const currentUserId = user && user._id;
+    const allPosts = this.getPosts();
     
-    return this.getPosts().map((post) => {
+    return allPosts.map((post) => {
       const showDeleteButton = post.owner === currentUserId;
       const upvoted = (post.upvoters.indexOf(currentUserId) !== -1);
       const downvoted = (post.downvoters.indexOf(currentUserId) !== -1);
@@ -63,25 +71,38 @@ export default class Home extends TrackerReact(React.Component) {
           />
         </li>
       );
-    }); 
+    });
   }
   
   render() {
     return (
       <div>
-        { this.currentUser() ?
-        <form className="new-post" onSubmit={this.handleSubmit.bind(this)} >
-          <input
-            type="text"
-            ref="urlInput"
-            placeholder="URL"
-            required
-          />
-          <input
-            type="submit"
-          />
-        </form> : ''
-        }
+        <div className="input-area">
+          { this.currentUser() ?
+          <form className="new-post" onSubmit={this.handleSubmit.bind(this)} >
+            <input
+              type="text"
+              ref="urlInput"
+              placeholder="Post a URL"
+              required
+            />
+            <input
+              type="submit"
+            />
+          </form> : ''
+          }
+          
+          <form className="search" onSubmit={this.handleSearch.bind(this)} >
+            <input
+              type="text"
+              ref="searchInput"
+              placeholder="Search"
+            />
+            <input
+              type="submit"
+            />
+          </form>
+        </div>
           
         <ol className="posts">
           {this.renderPosts()}

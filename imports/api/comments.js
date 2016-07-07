@@ -7,7 +7,7 @@ export const Comments = new Mongo.Collection('comments');
 if (Meteor.isServer) {
   // This code only runs on the server
   // Publish all posts
-  Meteor.publish('comments', function postsPublication() {
+  Meteor.publish('comments', function commentsPublication() {
     return Comments.find({});
   });
 }
