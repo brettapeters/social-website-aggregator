@@ -13,7 +13,7 @@ export default class App extends Component {
     return(
       <div className="container">
         <header>
-          <h1><Link to={"/"}>Social Website Aggregator</Link></h1>
+          <h1><Link to={"/"}>BP News</Link></h1>
           
           <AccountsUIWrapper />
         </header>
