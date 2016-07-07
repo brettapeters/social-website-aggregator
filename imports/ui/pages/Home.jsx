@@ -93,6 +93,7 @@ export default class Home extends TrackerReact(React.Component) {
             />
             <input
               type="submit"
+              value="Submit"
             />
           </form> : ''
           }
