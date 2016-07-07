@@ -74,6 +74,7 @@ export default class ShowPost extends TrackerReact(React.Component) {
           />
           <input
             type="submit"
+            value="Submit"
           />
         </form> : ''
         }
