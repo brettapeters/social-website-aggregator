@@ -16,6 +16,7 @@ export default class Home extends TrackerReact(React.Component) {
     this.state = {
       subscription: {
         posts: Meteor.subscribe('posts'),
+        comments: Meteor.subscribe('comments'),
       }
     }
   }

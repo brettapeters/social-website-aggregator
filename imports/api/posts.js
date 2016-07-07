@@ -11,10 +11,6 @@ if (Meteor.isServer) {
     'title': 'text',
   });
   
-  // Meteor.publish('posts', function postsPublication() {
-  //   return Posts.find({});
-  // });
-  
   Meteor.publish('posts', function(searchValue) {
     if (!searchValue) {
       return Posts.find({});
