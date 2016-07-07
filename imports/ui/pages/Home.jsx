@@ -47,7 +47,12 @@ export default class Home extends TrackerReact(React.Component) {
     const searchValue = ReactDOM.findDOMNode(this.refs.searchInput).value.trim();
     this.state.subscription.posts.stop();
     this.setState({ subscription: { posts: Meteor.subscribe('posts', searchValue) } });
+  }
+  
+  clearSearch(event) {
+    event.preventDefault();
     ReactDOM.findDOMNode(this.refs.searchInput).value = '';
+    this.handleSearch(event);
   }
   
   renderPosts() {
@@ -92,15 +97,15 @@ export default class Home extends TrackerReact(React.Component) {
           </form> : ''
           }
           
-          <form className="search" onSubmit={this.handleSearch.bind(this)} >
+          <form className="search" onKeyUp={this.handleSearch.bind(this)} >
             <input
               type="text"
               ref="searchInput"
               placeholder="Search"
             />
-            <input
-              type="submit"
-            />
+            <button className="clearSearch" onClick={this.clearSearch.bind(this)}>
+              &times;
+            </button>
           </form>
         </div>
           

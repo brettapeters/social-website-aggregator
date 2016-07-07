@@ -135,6 +135,17 @@ form input:focus{
   cursor: pointer;
 }
 
+.clearSearch {
+  font-weight: bold;
+  background: none;
+  font-size: 1em;
+  color: #828282;
+  border: none;
+  position: relative;
+  cursor: pointer;
+  left: -40px;
+}
+
 .posts > ol {
   margin: 0;
   padding: 10px;
