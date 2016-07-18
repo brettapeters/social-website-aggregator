@@ -5,7 +5,6 @@ body {
   font-family: 'Crimson Text', serif;
   background-color: #eee;
   background-attachment: fixed;
-  background: linear-gradient(45deg, #eee 25%, transparent 0, transparent 75%, #ddd 0), linear-gradient(45deg, #ddd 25%, transparent 0, transparent 75%, #eee 0), linear-gradient(-45deg, #ddd 17%, #eee 0, #eee 25%, #ddd 0, #ddd 36%, #eee 0, #eee 64%, #ddd 0, #ddd 75%, #eee 0, #eee 83%, #ddd 0);
   background-position: 0 0, 29px 29px;
   background-size: 58px 58px;
   top: 0;
@@ -34,7 +33,7 @@ ul, ol {
  
 header {
   background-color: rgb(239, 83, 88);
-  background: linear-gradient(rgb(239, 83, 88), rgb(200, 50, 60));
+  background: linear-gradient(rgb(28, 188, 214), rgb(98, 128, 167));
   padding: 20px 15px 15px 15px;
   position: relative;
   color: #FFF;
@@ -65,7 +64,6 @@ h1 {
 a {
   color: #000;
   text-decoration: none;
-  font-family: 'Lato', sans-serif;
   font-size: 1.3em;
 }
 
