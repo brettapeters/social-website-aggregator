@@ -168,10 +168,6 @@ form input:focus{
   border-bottom: #eee solid 1px;
 }
 
-.comments p {
-  margin: 0;
-}
-
 .comment-text {
   font-family: 'Lato';
 }
