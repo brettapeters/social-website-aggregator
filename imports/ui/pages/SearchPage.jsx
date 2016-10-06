@@ -9,16 +9,25 @@ import { Comments } from '../../api/comments.js';
 import Post from '../components/Post.jsx';
 
 
-// Home Page
-export default class Home extends TrackerReact(React.Component) {
+// Search Page
+export default class SearchPage extends TrackerReact(React.Component) {
   constructor(props) {
     super(props);
+    const searchValue = this.props.location.query.q;
     this.state = {
       subscription: {
-        posts: Meteor.subscribe('posts'),
+        posts: Meteor.subscribe('posts', searchValue),
         comments: Meteor.subscribe('comments'),
       }
     }
+  }
+  
+  componentWillReceiveProps(newProps) {
+    const newSearch = newProps.location.query.q;
+    this.state.subscription.posts.stop();
+    this.setState({ subscription:
+                    { posts: Meteor.subscribe('posts', newSearch) } });
+    
   }
   
   componentWillUnmount() {
@@ -59,9 +68,11 @@ export default class Home extends TrackerReact(React.Component) {
   
   render() {
     return (
-      <ul className="posts">
-        {this.renderPosts()}
-      </ul>
+      <div>
+        <ol className="posts">
+          {this.renderPosts()}
+        </ol>
+      </div>
     );
   }
 }

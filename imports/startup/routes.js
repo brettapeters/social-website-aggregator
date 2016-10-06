@@ -5,6 +5,7 @@ import { ReactRouterSSR } from 'meteor/reactrouter:react-router-ssr';
 // route components
 import App from '../ui/layouts/App.jsx';
 import Home from '../ui/pages/Home.jsx';
+import SearchPage from '../ui/pages/SearchPage.jsx';
 import ShowPost from '../ui/pages/ShowPost.jsx';
 import NotFoundPage from '../ui/pages/NotFoundPage.jsx';
 
@@ -13,6 +14,7 @@ const Routes = (
     <Route path="/" component={App}>
       <IndexRoute component={Home} />
       <Route path="posts/:postId" component={ShowPost} />
+      <Route path="search" component={SearchPage} />
     </Route>
     <Route path="*" component={NotFoundPage} />
   </Router>

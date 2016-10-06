@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
-import AccountsUIWrapper from '../components/AccountsUIWrapper.jsx';
+import Nav from '../components/Nav.jsx';
 
 // App component
 export default class App extends Component {
@@ -11,14 +11,11 @@ export default class App extends Component {
   render() {
     const { children } = this.props;
     return(
-      <div className="container">
-        <header>
-          <h1><Link to={"/"}>BP News</Link></h1>
-          
-          <AccountsUIWrapper />
-        </header>
-        
-        <div>{children}</div>
+      <div>
+        <Nav />
+        <div className="container main">
+          <div>{children}</div>
+        </div>
       </div>
     );
   }

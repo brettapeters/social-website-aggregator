@@ -67,7 +67,7 @@ export default class Post extends TrackerReact(React.Component) {
         }
         <div className="postWrap">
           <div className="postUrl">
-            <strong><a href={normalizedUrl} target="_blank">{postTitle}</a></strong>
+            <strong><a href={normalizedUrl}>{postTitle}</a></strong>
             <span> ({urlHost})</span>
           </div>
           <div className="postDetails">
